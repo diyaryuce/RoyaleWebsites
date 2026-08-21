@@ -8,6 +8,7 @@ import {
   DollarSignIcon,
   ChevronDown
 } from "lucide-react";
+import Face from "/img/fjes.JPG"
 import Logo from "/img/anadolu_white_notext_tight.png"
 
 function App() {
@@ -113,27 +114,13 @@ function Navbar() {
                   [&::-webkit-outer-spin-button]:appearance-none
                 "
               />
-              <button 
-                className="
-                  bg-amber-300/85
-                  p-3 w-20 h-11
-                  flex justify-center
-                  text-sm font-semibold
-
-                  transition duration-200
-                  hover:cursor-pointer
-                  hover:bg-amber-100/85
-                "
-              >
-                Top up</button>
             </div>
-
           <div className="h-8.5 w-0.5 bg-[#212121] flex justify-center items-center" />
 
             <div className="flex justify-center items-center gap-5">
 
               <img
-                src="/img/fjes.JPG"
+                src={Face}
                 className="h-12 w-12 shrink-0 rounded-full object-cover"
               />
               
@@ -153,8 +140,39 @@ function Navbar() {
 
 function ChatBox() {
   return(<>
-    <div className="border-0 bg-[#151515] w-83 h-200">
-      
+    <div className="border-0 bg-[#151515] w-72 h-200">
+      <Message 
+        image={Face}
+        name="bruhbruh"
+        message="I always pull top items on terminal"
+        clock="15:35"
+      />
+      <Message 
+        image={Face}
+        name="RoyaleR"
+        message="Trust you will win"
+        clock="15:36"
+      />
+      <Message 
+        image={Face}
+        name="Anonymous"
+        message="Never gambled with any money"
+        clock="15:37"
+      />
+      <Message 
+        image={Face}
+        name="Stephano"
+        message="i put like £5 on every month"
+        clock="15:38"
+      />
+
+
+      <Message 
+        image={Face}
+        name="0xHearts.com - Designer"
+        message="Would rather play a human... Dont trust :)"
+        clock="15:39"
+      />
     </div>
   </>)
 }
@@ -177,4 +195,43 @@ function NavButton({ icon: Icon, children }) {
       <span className="ml-1.5 group-hover:text-white transition duration-200">{children}</span>
     </button>
   );
+}
+
+function Message({ image, name, message, clock }) {
+  return (<>
+    <div 
+      className="
+        relative 
+        flex
+        p-3 pb-4.5
+
+        after:absolute
+        after:bottom-0
+        after:left-0
+        after:h-0.5
+        after:w-full
+        after:content-['']
+        after:bg-[linear-gradient(to_right,rgba(251,191,36,0.15)_0%,rgba(35,35,35,0.4)_18%,rgba(0,0,0,0.00)_100%)]
+      "
+    >
+      <img
+        src={image}
+        className="h-8 w-8 shrink-0 rounded-full object-cover"
+      />
+
+      <div className="ml-4">
+        <h3 className="text-[#b3b3b3] text-[11px]">
+          {name}
+        </h3>
+
+        <p className="text-[#b3b3b3] text-sm">
+          {message}
+        </p>
+
+        <p className="absolute right-3 top-3 text-[11px] text-[#696969] font-semibold">
+          {clock}
+        </p>      
+      </div>
+    </div> 
+  </>)
 }
